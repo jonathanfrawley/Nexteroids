@@ -1,6 +1,0 @@
-#ifndef  NXGAMEVIEWTYPES_H
-#define  NXGAMEVIEWTYPES_H
-
-typedef unsigned int nxGameViewId;
-
-#endif   // NXGAMEVIEWTYPES_H
