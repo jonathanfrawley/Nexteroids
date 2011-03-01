@@ -1,0 +1,48 @@
+#ifndef  NXBINARYPACKET_H
+#define  NXBINARYPACKET_H
+
+#include <string.h>
+
+#include <netinet/in.h>
+
+#include <nxCore/nxCore.hpp>
+#include <nxNet/nxIPacket.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxBinaryPacket
+ *  Description:
+ * =====================================================================================
+ */
+class nxBinaryPacket : public nxIPacket
+{
+	public:
+		//TODO:
+		nxBinaryPacket(char const * data, uint32_t size);
+
+		nxBinaryPacket(uint32_t size);
+
+		virtual ~nxBinaryPacket();
+
+		virtual char const * VGetType() const
+		{
+			return m_Type;
+		}
+
+		virtual char const * VGetData() const
+		{
+			return m_Data;
+		}
+
+		virtual uint32_t VGetSize() const
+		{
+			return ntohl(*(uint32_t*)m_Data);
+		}
+		
+	protected:
+		const char* m_Type;
+		char* m_Data;
+	private:
+};
+
+#endif   // NXBINARYPACKET_H

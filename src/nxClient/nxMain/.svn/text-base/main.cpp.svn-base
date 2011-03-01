@@ -1,0 +1,16 @@
+#include <nxGameApp/nxNexteroidsGameApp.hpp>
+
+int main( int argc, char *argv[] )
+{
+	nxGameApp& gameApp = nxNexteroidsGameApp::GetInstance();
+
+	gameApp.SetArgs(argc, argv);
+
+	gameApp.Init();
+
+	gameApp.MainLoop();
+
+	nxGameApp::Shutdown();
+
+	return 0;
+}

@@ -1,0 +1,55 @@
+#ifndef  NXCLIENTNETWORKMANAGER_H
+#define  NXCLIENTNETWORKMANAGER_H
+
+#include <string>
+
+//TODO: Remove these 2
+#include <iostream>
+#include <netinet/in.h>
+
+#include <zmq.hpp>
+
+#include <nxNet/nxRemoteEventToLocalConverter.hpp>
+#include <nxNet/nxINetworkManager.hpp>
+#include <nxNet/nxBinaryPacket.hpp>
+
+using namespace std;
+using namespace zmq;
+
+/*
+ * =====================================================================================
+ *        Class: nxClientNetworkManager
+ *  Description:
+ * =====================================================================================
+ */
+class nxClientNetworkManager : public nxINetworkManager
+{
+	public:
+
+		nxClientNetworkManager(string publisherAddr, string serverAddress);
+
+		virtual ~nxClientNetworkManager();
+
+		virtual bool Init();
+
+		virtual void VTick();
+
+		void AssertRcType(int rc);
+
+		void ListenToServer();
+
+		void SendToAllSubscribers(nxPacketPtr packet);
+		
+	protected:
+		string m_PublisherAddr;
+		string m_ServerAddr;
+		context_t *m_Context;
+		socket_t *m_Publisher;
+		socket_t *m_ServerListener;
+		nxRemoteEventToLocalConverter m_RemoteEventToLocal;
+
+	private:
+};
+
+
+#endif   // NXCLIENTNETWORKMANAGER_H

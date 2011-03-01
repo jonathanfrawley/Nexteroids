@@ -1,0 +1,43 @@
+#ifndef  NXNEXTEROIDSGAMEAPP_H
+#define  NXNEXTEROIDSGAMEAPP_H
+
+#include <string>
+
+#include <nxCore/nxCore.hpp>
+#include <nxGameApp/nxGameApp.hpp>
+#include <nxGameView/nxNexteroidsGameView.hpp>
+#include <nxGameLogic/nxNexteroidsGameLogic.hpp>
+
+using namespace std;
+
+/*
+ * =====================================================================================
+ *        Class: nxNexteroidsGameApp
+ *  Description:
+ * =====================================================================================
+ */
+class nxNexteroidsGameApp : public nxGameApp
+{
+	public:
+		static nxNexteroidsGameApp& GetInstance();
+
+		virtual void VCreateGameLogicAndGameView();
+
+		virtual void VCreateNetworkManager();
+
+		unsigned ConvertIpStringToUInt(string ip);
+
+		virtual void ListenForNexteroidsViewCommands(nxEventListenerPtr listener);
+
+		virtual void ListenForNexteroidsGameCommands(nxEventListenerPtr listener);
+
+	protected:
+		static nxNexteroidsGameApp m_Instance;
+
+		nxNexteroidsGameApp();
+
+		virtual ~nxNexteroidsGameApp();
+	private:
+};
+
+#endif   // NXNEXTEROIDSGAMEAPP_H

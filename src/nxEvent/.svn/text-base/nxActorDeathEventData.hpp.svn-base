@@ -1,0 +1,55 @@
+#ifndef  NXACTORDEATHEVENTDATA_H
+#define  NXACTORDEATHEVENTDATA_H
+
+#include <nxEvent/nxBaseEventData.hpp>
+#include <nxActor/nxIActor.hpp>
+#include <nxActor/nxBaseActor.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxActorDeathEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxActorDeathEventData : public nxBaseEventData
+{
+	public:
+		nxActorDeathEventData();
+
+		nxActorDeathEventData(nxActorId actorId)
+			:
+				nxBaseEventData(),
+				m_ActorId(actorId)
+		{
+			m_EventType = NX_EVENT_ActorDeath;
+		}
+
+		nxActorDeathEventData(stringstream& in)
+			:
+				nxBaseEventData()
+		{
+			m_EventType = NX_EVENT_ActorDeath;
+			in >> m_ActorId;
+		}
+
+		virtual void VSerialize(stringstream &out) const
+		{
+			out << m_ActorId << " ";
+		}
+
+		virtual ~nxActorDeathEventData()
+		{
+		}
+
+		nxActorId GetActorId() const
+		{
+			return m_ActorId;
+		}
+
+	protected:
+		nxActorId m_ActorId;
+
+	private:
+};
+
+#endif   // NXACTORDEATHEVENTDATA_H

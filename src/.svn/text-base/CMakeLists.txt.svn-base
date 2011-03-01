@@ -1,0 +1,102 @@
+cmake_minimum_required(VERSION 2.8)
+
+Project ( Nexteroids )
+
+set(CMAKE_CXX_FLAGS "-g -Wall")
+
+### Set include dirs
+if(WIN32)
+	INCLUDE_DIRECTORIES(./ ../lib/SDL/include)
+	LINK_DIRECTORIES(../lib/SDL/lib)
+else()
+	set(CMAKE_INCLUDE_CURRENT_DIR ON)
+	INCLUDE_DIRECTORIES(./)
+	INCLUDE_DIRECTORIES(/usr/include/SDL)
+endif()
+
+if(WIN32)
+	SET(jf_common_client_lib sdl sdlmain sdl_net)
+else()
+	SET(jf_common_client_lib SDL SDL_net GL GLU)
+endif()
+
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+INCLUDE_DIRECTORIES(./)
+INCLUDE_DIRECTORIES(/usr/include/freetype2)
+
+#FIND_PACKAGE(Boost COMPONENTS program_options unit_test_framework system filesystem thread REQUIRED)
+FIND_PACKAGE(Boost COMPONENTS program_options system filesystem thread REQUIRED)
+FIND_PACKAGE ( SDL REQUIRED )
+
+SET(libNxThirdParty ftgl Box2D zmq guichan_sdl guichan_opengl guichan GL GLU SDL_image SDL_mixer ${SDL_LIBRARY} ${Boost_PROGRAM_OPTIONS_LIBRARY}  ${Boost_SYSTEM_LIBRARY} ${Boost_THREAD_LIBRARY} )
+
+#Make Libraries
+FILE(GLOB nxActor_cpp "./nxActor/*.cpp")
+FILE(GLOB nxGameApp_cpp "./nxGameApp/*.cpp")
+FILE(GLOB nxGameLogic_cpp "./nxGameLogic/*.cpp")
+FILE(GLOB nxGameView_cpp "./nxGameView/*.cpp")
+FILE(GLOB nxEvent_cpp "./nxEvent/*.cpp")
+FILE(GLOB nxNet_cpp "./nxNet/*.cpp")
+FILE(GLOB nxProcess_cpp "./nxProcess/*.cpp")
+FILE(GLOB nxRandom_cpp "./nxRandom/*.cpp")
+FILE(GLOB nxConfig_cpp "./nxConfig/*.cpp")
+FILE(GLOB nxGeom_cpp "./nxGeom/*.cpp")
+FILE(GLOB nxPhysics_cpp "./nxPhysics/*.cpp")
+FILE(GLOB jfTimer_cpp "./jfTimer/*.cpp")
+
+ADD_LIBRARY(libNxCore ${nxPhysics_cpp} ${nxActor_cpp} ${nxGeom_cpp} ${nxConfig_cpp} ${nxGameView_cpp} ${nxGameApp_cpp} ${nxProcess_cpp} ${nxGameLogic_cpp} ${nxEvent_cpp} ${nxNet_cpp} ${nxRandom_cpp} ${jfTimer_cpp})
+TARGET_LINK_LIBRARIES(libNxCore ${libNxThirdParty})
+
+FILE(GLOB jfpx_cpp "./jfpx/*.cpp")
+FILE(GLOB jfpx_x86_cpp "./jfpx/x86/*.cpp")
+FILE(GLOB_RECURSE jfShape_cpp "./jfShape/*.cpp")
+ADD_LIBRARY(libJfpx ${jfpx_cpp} ${jfpx_x86_cpp} ${jfShape_cpp})
+
+FILE(GLOB nxMain_cpp "nxClient/nxMain/*.cpp")
+ADD_EXECUTABLE(nxMain ${nxMain_cpp})
+TARGET_LINK_LIBRARIES(nxMain libNxCore ${libNxThirdParty})
+
+### Old stuff
+FILE(GLOB jfTimer_cpp "./jfTimer/*.cpp")
+SET(jfCore_cpp ${jfTimer_cpp}) 
+ADD_LIBRARY(libJfCore ${jfCore_cpp})
+
+FILE(GLOB jf_tcp_experiment_server_cpp "jfExperiment/jfTcpServer/*.cpp")
+add_executable (jf_tcp_experiment_server ${jf_tcp_experiment_server_cpp})
+target_link_libraries(jf_tcp_experiment_server libJfCore ${jf_common_client_lib})
+
+FILE(GLOB jf_tcp_experiment_client_cpp "jfExperiment/jfTcpClient/*.cpp")
+add_executable (jf_tcp_experiment_client ${jf_tcp_experiment_client_cpp})
+target_link_libraries(jf_tcp_experiment_client libJfCore ${jf_common_client_lib})
+
+FILE(GLOB jf_asio_client_cpp "jfExperiment/jfAsio/jfAsioClient.cpp")
+add_executable(jf_asio_client ${jf_asio_client_cpp})
+target_link_libraries(jf_asio_client ${libNxThirdParty} libJfCore ${jf_common_client_lib})
+
+FILE(GLOB jf_asio_server_cpp "jfExperiment/jfAsio/jfAsioServer.cpp")
+add_executable(jf_asio_server ${jf_asio_server_cpp})
+target_link_libraries(jf_asio_server ${libNxThirdParty} libJfCore ${jf_common_client_lib})
+
+FILE(GLOB jf_zmq_hello_client_cpp "jfExperiment/jfZmq/hello/client.cpp")
+add_executable(jf_zmq_hello_client ${jf_zmq_hello_client_cpp})
+target_link_libraries(jf_zmq_hello_client zmq ${libNxThirdParty} libJfCore ${jf_common_client_lib})
+
+FILE(GLOB jf_zmq_hello_server_cpp "jfExperiment/jfZmq/hello/server.cpp")
+add_executable(jf_zmq_hello_server ${jf_zmq_hello_server_cpp})
+target_link_libraries(jf_zmq_hello_server zmq ${libNxThirdParty} libJfCore ${jf_common_server_lib})
+
+FILE(GLOB jf_zmq_pub_sub_client_cpp "jfExperiment/jfZmq/pub_sub/client.cpp")
+add_executable(jf_zmq_pub_sub_client ${jf_zmq_pub_sub_client_cpp})
+target_link_libraries(jf_zmq_pub_sub_client zmq ${libNxThirdParty} libJfCore ${jf_common_client_lib})
+
+FILE(GLOB jf_zmq_pub_sub_server_cpp "jfExperiment/jfZmq/pub_sub/server.cpp")
+add_executable(jf_zmq_pub_sub_server ${jf_zmq_pub_sub_server_cpp})
+TARGET_LINK_LIBRARIES(jf_zmq_pub_sub_server zmq ${libNxThirdParty} libJfCore ${jf_common_server_lib})
+
+#FILE(GLOB jf_zmq_test_arch_client_cpp "jfExperiment/jfZmq/test_arch/client.cpp")
+#ADD_EXECUTABLE(jf_zmq_test_arch_client ${jf_zmq_test_arch_client_cpp})
+#TARGET_LINK_LIBRARIES(jf_zmq_test_arch_client zmq ${libNxThirdParty} libJfCore ${jf_common_client_lib})
+
+#FILE(GLOB jf_zmq_test_arch_server_cpp "jfExperiment/jfZmq/test_arch/server.cpp")
+#ADD_EXECUTABLE(jf_zmq_test_arch_server ${jf_zmq_test_arch_server_cpp})
+#TARGET_LINK_LIBRARIES(jf_zmq_test_arch_server zmq ${libNxThirdParty} libJfCore ${jf_common_server_lib})

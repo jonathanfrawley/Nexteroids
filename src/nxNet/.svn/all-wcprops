@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet
+END
+nxClientNetworkManager.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxClientNetworkManager.hpp
+END
+nxRemoteEventToLocalConverter.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxRemoteEventToLocalConverter.hpp
+END
+nxServerNetworkManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxServerNetworkManager.cpp
+END
+nxBinaryPacket.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxBinaryPacket.cpp
+END
+nxServerNetworkManager.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxServerNetworkManager.hpp
+END
+nxBinaryPacket.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxBinaryPacket.hpp
+END
+nxINetworkManager.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxINetworkManager.hpp
+END
+nxClientNetworkManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxClientNetworkManager.cpp
+END
+nxRemoteEventToLocalConverter.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxRemoteEventToLocalConverter.cpp
+END
+nxNetSocket.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxNetSocket.hpp
+END
+nxIPacket.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxNet/nxIPacket.hpp
+END

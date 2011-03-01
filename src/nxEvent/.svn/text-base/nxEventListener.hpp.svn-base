@@ -1,0 +1,34 @@
+#ifndef  NXEVENTLISTENER_H
+#define  NXEVENTLISTENER_H
+
+#include <nxEvent/nxIEventListener.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxEventListener
+ *  Description:
+ * =====================================================================================
+ */
+class nxEventListener : public nxIEventListener
+{
+	public:
+		nxEventListener() {}
+
+		virtual ~nxEventListener() {}
+
+		virtual char const * GetName(void) = 0;
+
+		/* 
+		 * ===  FUNCTION  ======================================================================
+		 *         Name:  HandleEvent
+		 *  Description:  Returns true when consumed event, false otherwise.
+		 * =====================================================================================
+		 */
+		virtual bool HandleEvent( nxIEventData const & event ) = 0;
+
+	protected:
+	private:
+};
+
+
+#endif   // NXEVENTLISTENER_H

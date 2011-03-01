@@ -1,0 +1,27 @@
+#ifndef  NXDEBUGPROCESS_H
+#define  NXDEBUGPROCESS_H
+
+#include <nxProcess/nxProcess.hpp>
+#include <nxLog/nxLog.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxDebugProcess
+ *  Description: 
+ * =====================================================================================
+ */
+class nxDebugProcess : public nxProcess
+{
+	public:
+		nxDebugProcess( );
+
+		virtual ~nxDebugProcess( );
+
+		virtual void VOnUpdate( const int iDelta );
+
+	protected:
+
+	private:
+};
+
+#endif   // NXDEBUGPROCESS_H

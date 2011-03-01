@@ -1,0 +1,26 @@
+#ifndef  NXGAMELOGIC_H
+#define  NXGAMELOGIC_H
+
+#include <nxGameLogic/nxBaseGameLogic.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxGameLogic
+ *  Description:
+ * =====================================================================================
+ */
+class nxGameLogic : public nxBaseGameLogic 
+{
+	public:
+		nxGameLogic();
+
+		nxGameLogic(struct nxGameOptions const &options);
+
+		virtual ~nxGameLogic();
+		
+	protected:
+	private:
+};
+
+
+#endif   // NXGAMELOGIC_H

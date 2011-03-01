@@ -1,0 +1,34 @@
+#ifndef  NXLOADINGGAMEEVENTDATA_H
+#define  NXLOADINGGAMEEVENTDATA_H
+
+#include <nxEvent/nxBaseEventData.hpp>
+#include <nxEvent/nxEventType.hpp>
+#include <nxGameLogic/nxGameState.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxLoadingGameEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxLoadingGameEventData : public nxBaseEventData
+{
+	public:
+		nxLoadingGameEventData()
+			:
+				nxBaseEventData()
+		{
+            m_EventType = NX_EVENT_LoadingGame;
+		}
+
+		virtual ~nxLoadingGameEventData()
+		{
+		}
+
+		
+	protected:
+	private:
+};
+
+
+#endif   // NXLOADINGGAMEEVENTDATA_H

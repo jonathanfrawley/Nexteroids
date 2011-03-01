@@ -1,0 +1,15 @@
+#ifndef  NXGAMESTATE_H
+#define  NXGAMESTATE_H
+
+enum nxGameState
+{
+	NX_GS_Initializing,
+	NX_GS_MainMenu,
+	NX_GS_WaitingForPlayers,
+	NX_GS_LoadingGameEnvironment,
+	NX_GS_LoadedLevel00,
+	NX_GS_SpawnAI,
+	NX_GS_Running
+};
+
+#endif   // NXGAMESTATE_H

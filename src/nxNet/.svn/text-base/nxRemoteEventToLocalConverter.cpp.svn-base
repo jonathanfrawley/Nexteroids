@@ -1,0 +1,80 @@
+#include "nxRemoteEventToLocalConverter.hpp"
+
+#include <nxEvent/nxEventType.hpp>
+#include <nxEvent/nxEventManager.hpp>
+#include <nxEvent/nxRemoteClientEventData.hpp>
+
+nxRemoteEventToLocalConverter::nxRemoteEventToLocalConverter()
+{
+}
+
+nxRemoteEventToLocalConverter::~nxRemoteEventToLocalConverter()
+{
+}
+
+void nxRemoteEventToLocalConverter::ConvertAndQueuePacket(nxPacketPtr packet)
+{
+	string packetString(packet->VGetData()+sizeof(uint32_t), packet->VGetSize()-sizeof(uint32_t));
+	stringstream in(packetString);
+
+//	in.str(packetString);
+
+	/*
+	uint32_t size;
+	in >> size;
+	*/
+
+	nxEventType type;
+	uint32_t typeInt;
+	in >> typeInt;
+	type = (nxEventType)typeInt;
+
+	stringstream out;
+	out<<"Remote event received:"<<endl;
+	out<<"type is : "<<(typeInt) << endl;
+	out<<"stream is : "<<in.str();
+	log(NX_LOG_DEBUG, out.str());
+
+	if(type==NX_EVENT_RemoteClient)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxRemoteClientEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+	else if(type==NX_EVENT_NewActor)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxNewActorEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+	else if(type==NX_EVENT_ActorMoved)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxActorMovedEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+	else if(type==NX_EVENT_ActorDeath)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxActorDeathEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+	else if(type==NX_EVENT_GameState)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxGameStateEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+	else if(type==NX_EVENT_Thrust)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxThrustEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+	else if(type==NX_EVENT_Steer)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxSteerEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+	else if(type==NX_EVENT_FireWeapon)
+	{
+		const nxIEventDataPtr eventPtr( NX_NEW nxFireWeaponEventData(in));
+		nxEventManager::GetInstance().VQueueEvent(eventPtr);
+	}
+
+	return;
+}

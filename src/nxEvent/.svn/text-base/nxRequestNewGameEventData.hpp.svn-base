@@ -1,0 +1,38 @@
+
+#ifndef  NXREQUESTNEWGAMEEVENTDATA_H
+#define  NXREQUESTNEWGAMEEVENTDATA_H
+
+#include <nxEvent/nxBaseEventData.hpp>
+#include <nxEvent/nxEventType.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxRequestNewGameEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxRequestNewGameEventData : public nxBaseEventData
+{
+	public:
+		nxRequestNewGameEventData()
+			:
+				nxBaseEventData()
+		{
+            m_EventType = NX_EVENT_RequestNewGame;
+		}
+
+		virtual ~nxRequestNewGameEventData()
+		{
+		}
+
+		virtual nxIEventDataPtr VCopy() const
+		{
+			return nxIEventDataPtr( NX_NEW nxRequestNewGameEventData( ) );
+		}
+
+	protected:
+
+	private:
+};
+
+#endif   // NXREQUESTNEWGAMEEVENTDATA_H

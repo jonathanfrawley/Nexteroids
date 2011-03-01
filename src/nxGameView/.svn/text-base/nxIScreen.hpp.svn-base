@@ -1,0 +1,37 @@
+
+#ifndef  NXISCREEN_H
+#define  NXISCREEN_H
+
+#include <nxActor/nxIActor.hpp>
+#include <nxCore/nxCore.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxIScreen
+ *  Description:
+ * =====================================================================================
+ */
+class nxIScreen
+{
+	public:
+		virtual ~nxIScreen()
+		{
+		}
+
+		virtual void VOnUpdate(int deltaMilliseconds) = 0;
+
+		virtual void VOnRender() = 0;
+
+		virtual void VAddActor(shared_ptr<nxIActor> actor) { ; }
+
+		virtual void VRemoveActor(nxActorId aid) { ; }
+
+		virtual void VMoveActor(nxActorId aid, nxPoint3 pos, nxReal orientation) { ; }
+
+		virtual void AddToScore(int val) { ; }
+		
+	protected:
+	private:
+};
+
+#endif   // NXISCREEN_H

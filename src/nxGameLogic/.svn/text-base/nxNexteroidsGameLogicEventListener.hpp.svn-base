@@ -1,0 +1,49 @@
+
+#ifndef  NXNEXTEROIDSGAMELOGICEVENTLISTENER_H
+#define  NXNEXTEROIDSGAMELOGICEVENTLISTENER_H
+
+#include <nxGameLogic/nxNexteroidsBaseGameLogic.hpp>
+#include <nxEvent/nxEventListener.hpp>
+#include <nxEvent/nxEventType.hpp>
+#include <nxEvent/nxRequestNewActorEventData.hpp>
+#include <nxEvent/nxNewActorEventData.hpp>
+#include <nxEvent/nxThrustEventData.hpp>
+#include <nxEvent/nxSteerEventData.hpp>
+#include <nxEvent/nxFireWeaponEventData.hpp>
+#include <nxEvent/nxPhysCollisionEventData.hpp>
+#include <nxEvent/nxActorDeathEventData.hpp>
+#include <nxEvent/nxActorMovedEventData.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxNexteroidsGameLogicEventListener
+ *  Description:
+ * =====================================================================================
+ */
+class nxNexteroidsGameLogicEventListener : public nxEventListener
+{
+	public:
+		nxNexteroidsGameLogicEventListener(nxNexteroidsBaseGameLogic* gameLogic)
+			:
+				m_pGameLogic(gameLogic)
+		{
+		}
+
+		virtual ~nxNexteroidsGameLogicEventListener()
+		{
+		}
+
+		virtual char const * GetName(void)
+		{
+			return "nxNexteroidsGameViewEventListener";
+		}
+
+		virtual bool HandleEvent( nxIEventData const & event );
+
+	protected:
+		nxNexteroidsBaseGameLogic* m_pGameLogic;
+	private:
+};
+
+
+#endif   // NXNEXTEROIDSGAMELOGICEVENTLISTENER_H

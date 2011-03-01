@@ -1,0 +1,15 @@
+#include "nxGameLogic.hpp"
+
+nxGameLogic::nxGameLogic()
+{
+}
+
+nxGameLogic::nxGameLogic(struct nxGameOptions const &options)
+	:
+		nxBaseGameLogic(options)
+{
+}
+
+nxGameLogic::~nxGameLogic()
+{
+}

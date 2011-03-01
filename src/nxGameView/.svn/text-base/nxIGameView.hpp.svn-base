@@ -1,0 +1,52 @@
+#ifndef  NXIGAMEVIEW_H
+#define  NXIGAMEVIEW_H
+
+#include <nxCore/nxCore.hpp>
+#include <nxCore/nxTypes.hpp>
+#include <nxGameView/nxIScreen.hpp>
+#include <nxGameView/nxGameViewTypes.hpp>
+
+enum nxGameViewType
+{
+	NX_GAMEVIEW_HUMAN,
+	NX_GAMEVIEW_REMOTE,
+	NX_GAMEVIEW_AI,
+	NX_GAMEVIEW_RECORDER,
+	NX_GAMEVIEW_OTHER
+};
+
+
+/*
+ * =====================================================================================
+ *        Class: nxIGameView
+ *  Description:
+ * =====================================================================================
+ */
+class nxIGameView
+{
+	public:
+
+		virtual ~nxIGameView() { };
+
+        virtual bool Init() = 0;
+
+		virtual void VOnAttach(nxGameViewId, nxActorId aid) = 0;
+
+		virtual void VOnRestore() = 0;
+
+		virtual void VOnUpdate(int deltaMilliseconds) = 0;
+
+		virtual void VOnRender()=0;
+
+		virtual nxGameViewType VGetType()=0;
+
+		virtual nxGameViewId VGetId() const=0;
+
+//		virtual LRESULT CALLBACK VOnMsgProc( AppMsg msg )=0;
+
+		
+	protected:
+	private:
+};
+
+#endif   // NXIGAMEVIEW_H

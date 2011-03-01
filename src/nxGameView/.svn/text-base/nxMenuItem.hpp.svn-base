@@ -1,0 +1,31 @@
+#ifndef  NXMENUITEM_H
+#define  NXMENUITEM_H
+
+#include <guichan.hpp>
+
+
+/*
+ * =====================================================================================
+ *        Class: nxMenuItem
+ *  Description:
+ * =====================================================================================
+ */
+class nxMenuItem : public gcn::Button
+{
+	public:
+		nxMenuItem(std::string str);
+
+		void keyPressed(gcn::KeyEvent& keyEvent);
+
+		void keyReleased(gcn::KeyEvent& keyEvent);
+
+		virtual void mousePressed (gcn::MouseEvent &mouseEvent);
+
+		virtual void draw(gcn::Graphics* g);
+
+	protected:
+		//nxNexteroidsGameApp* m_GameApp;
+	private:
+};
+
+#endif   // NXMENUITEM_H

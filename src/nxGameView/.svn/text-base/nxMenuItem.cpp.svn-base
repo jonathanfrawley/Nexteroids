@@ -1,0 +1,34 @@
+#include "nxMenuItem.hpp"
+
+#include <nxGameApp/nxNexteroidsGameApp.hpp>
+
+nxMenuItem::nxMenuItem(std::string str)//, nxNexteroidsGameApp* gameApp)
+	:
+		gcn::Button(str)
+{
+	// The widget needs to be focusable in order to receive key events.
+	setFocusable(true);
+	addKeyListener(this);
+    setBaseColor(gcn::Color(0,0,0,255));
+}
+
+void nxMenuItem::keyPressed(gcn::KeyEvent& keyEvent)
+{
+//	std::cout << "Key pressed: " << keyEvent.getKey().getValue() << std::endl;
+}
+
+void nxMenuItem::keyReleased(gcn::KeyEvent& keyEvent)
+{
+//	std::cout << "Key released: " << keyEvent.getKey().getValue() << std::endl;
+}
+
+void nxMenuItem::mousePressed (gcn::MouseEvent &mouseEvent)
+{
+}
+
+void nxMenuItem::draw(gcn::Graphics* g)
+{
+	gcn::Button::draw(g);
+}
+
+

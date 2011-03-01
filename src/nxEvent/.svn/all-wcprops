@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent
+END
+nxEventType.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxEventType.hpp
+END
+nxIEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxIEventData.hpp
+END
+nxIEventManager.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxIEventManager.hpp
+END
+nxThrustEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxThrustEventData.hpp
+END
+nxRemoteClientEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxRemoteClientEventData.hpp
+END
+nxEventListener.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxEventListener.hpp
+END
+nxRequestNewActorEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxRequestNewActorEventData.hpp
+END
+nxRequestNewGameEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxRequestNewGameEventData.hpp
+END
+nxFireWeaponEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxFireWeaponEventData.hpp
+END
+nxPhysCollisionEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxPhysCollisionEventData.hpp
+END
+nxLoadingGameEventData.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxLoadingGameEventData.cpp
+END
+nxActorMovedEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxActorMovedEventData.hpp
+END
+nxIEventListener.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxIEventListener.hpp
+END
+nxLoadingGameEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxLoadingGameEventData.hpp
+END
+nxGameStateEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxGameStateEventData.hpp
+END
+nxBaseEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxBaseEventData.hpp
+END
+nxEventManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxEventManager.cpp
+END
+nxActorDeathEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxActorDeathEventData.hpp
+END
+nxEventManager.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxEventManager.hpp
+END
+nxNewActorEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxNewActorEventData.hpp
+END
+nxSteerEventData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxSteerEventData.hpp
+END
+nxIEventData.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxIEventData.cpp
+END
+nxIEventManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxEvent/nxIEventManager.cpp
+END

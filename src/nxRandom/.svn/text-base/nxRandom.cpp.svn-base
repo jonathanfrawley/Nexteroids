@@ -1,0 +1,13 @@
+#include "nxRandom.hpp"
+
+nxRandom::nxRandom()
+{
+	m_Xn = 1;
+	m_M = 4294967296;
+	m_A = 1664525;
+	m_C = 1013904223;
+}
+
+nxRandom::~nxRandom()
+{
+}

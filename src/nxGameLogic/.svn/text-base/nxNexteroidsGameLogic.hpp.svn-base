@@ -1,0 +1,51 @@
+
+#ifndef  NXNEXTEROIDSGAMELOGIC_H
+#define  NXNEXTEROIDSGAMELOGIC_H
+
+#include <iostream>
+
+#include <nxGeom/nxPoint3.hpp>
+#include <nxActor/nxSpaceshipActor.hpp>
+#include <nxActor/nxRockActor.hpp>
+#include <nxGameLogic/nxGameOptions.hpp>
+#include <nxGameLogic/nxNexteroidsBaseGameLogic.hpp>
+#include <nxGameLogic/nxNexteroidsGameLogicEventListener.hpp>
+#include <nxGameLogic/nxGameState.hpp>
+#include <nxEvent/nxIEventManager.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxNexteroidsGameLogic
+ *  Description:
+ * =====================================================================================
+ */
+class nxNexteroidsGameLogic : public nxNexteroidsBaseGameLogic
+{
+	public:
+		nxNexteroidsGameLogic(nxGameOptions const &options);
+
+		virtual ~nxNexteroidsGameLogic();
+
+		virtual void VInit();
+
+		void VOnUpdate(int deltaMilliseconds);
+
+		virtual void VBuildLevel00();
+
+		void ListenForProxyNexteroidsGameLogicEvents();
+
+        void ListenForNexteroidsGameLogicEvents();
+
+		void SpawnActor(nxActorType type);
+
+	protected:
+		nxEventListenerPtr m_EventListener;
+		bool m_HasBuiltLevel;
+		int m_Time;
+
+
+	private:
+};
+
+
+#endif   // NXNEXTEROIDSGAMELOGIC_H

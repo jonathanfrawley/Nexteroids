@@ -1,0 +1,32 @@
+
+#ifndef  NXSPACESHIPPARAMS_H
+#define  NXSPACESHIPPARAMS_H
+
+#include <nxActor/nxActorParams.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxSpaceshipParams
+ *  Description:
+ * =====================================================================================
+ */
+class nxSpaceshipParams : public nxActorParams
+{
+	public:
+		nxSpaceshipParams();
+
+		virtual ~nxSpaceshipParams();
+		
+        virtual shared_ptr<nxIActor> VCreate(nxBaseGameLogic *logic) = 0;
+
+        virtual bool VInit(std::istrstream &in);
+
+        virtual void VSerialize(std::ostrstream &out) const;
+
+	protected:
+		float m_Rot; //In Radians about pos.
+		float m_Radius;
+	private:
+};
+
+#endif   // NXSPACESHIPPARAMS_H

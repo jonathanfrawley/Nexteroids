@@ -1,0 +1,39 @@
+#ifndef  NXMAINMENUGAMEVIEW_H
+#define  NXMAINMENUGAMEVIEW_H
+
+#include <nxCore/nxCore.hpp>
+#include <nxGameView/nxHumanView.hpp>
+#include <nxGameView/nxLoadingScreen.hpp>
+#include <nxGameView/nxGameScreen.hpp>
+#include <nxEvent/nxThrustEventData.hpp>
+#include <nxEvent/nxSteerEventData.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxMainMenuGameView
+ *  Description:
+ * =====================================================================================
+ */
+class nxMainMenuGameView : public nxHumanView
+{
+	public:
+		nxMainMenuGameView();
+
+		virtual ~nxMainMenuGameView();
+
+		bool Init();
+
+		void ShowLoadingScreen();
+		
+        void ListenForMainMenuGameViewEvents();
+
+		virtual void VHandleKeyboardCommands(SDL_Event event);
+
+	protected:
+        nxEventListenerPtr m_EventListener;
+
+	private:
+};
+
+
+#endif   // NXMAINMENUGAMEVIEW_H

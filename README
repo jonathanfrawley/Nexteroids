@@ -1,0 +1,19 @@
+NeXter0ids
+##########
+
+Build instructions :
+The following should build the executable on linux :
+cd bin/unix
+cmake ../../src
+make
+
+To build on windows, use cmake to generate a visual studio project.
+
+Notes : 
+To build you will need cmake, opengl, SDL, Box2D, zeromq, and Boost installed. 
+Hope someone finds it useful, see the LICENSE file for licensing information.
+~50000 lines in size so far, not the shortest way of doing everything but very modular and hopefully highly reusable.
+
+Have fun!
+
+- J0n

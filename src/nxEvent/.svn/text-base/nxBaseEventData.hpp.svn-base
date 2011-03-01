@@ -1,0 +1,43 @@
+#ifndef  NXBASEEVENTDATA_H
+#define  NXBASEEVENTDATA_H
+
+#include <strstream>
+
+#include <nxEvent/nxIEventData.hpp>
+#include <nxEvent/nxEventType.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxBaseEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxBaseEventData : public nxIEventData
+{
+	public:
+		nxBaseEventData()
+		{
+			m_EventType = NX_EVENT_Null;
+		}
+
+		virtual ~nxBaseEventData()
+		{
+		}
+
+		virtual nxEventType VGetEventType() const
+		{
+			return m_EventType;
+		}
+
+		//Serializing for network out.
+		virtual void VSerialize(stringstream &out) const
+		{
+		};
+		
+	protected:
+		nxEventType m_EventType;
+	private:
+};
+
+
+#endif   // NXBASEEVENTDATA_H

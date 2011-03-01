@@ -1,0 +1,47 @@
+#ifndef  NXREQUESTNEWACTOREVENTDATA_H
+#define  NXREQUESTNEWACTOREVENTDATA_H
+
+#include <nxCore/nxCore.hpp>
+#include <nxEvent/nxBaseEventData.hpp>
+#include <nxActor/nxIActor.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxRequestNewActorEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxRequestNewActorEventData : public nxBaseEventData
+{
+	public:
+		nxRequestNewActorEventData(shared_ptr<nxIActor> actor)
+			:
+				nxBaseEventData()
+		{
+			m_EventType = NX_EVENT_RequestNewActor;
+			m_Actor = actor->VClone();
+		}
+
+		virtual ~nxRequestNewActorEventData()
+		{
+		}
+
+		/*
+		nxActorParams* GetActorParams() const
+		{
+			return m_Params;
+		}
+		*/
+
+		nxIActor* GetActor() const
+		{
+			return m_Actor;
+		}
+
+	protected:
+		nxIActor* m_Actor;
+
+	private:
+};
+
+#endif

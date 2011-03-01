@@ -1,0 +1,59 @@
+
+#ifndef  NXSERVEREVENTMANAGER_H
+#define  NXSERVEREVENTMANAGER_H
+
+#include <vector>
+#include <string>
+
+//TODO: Remove these 2
+#include <iostream>
+#include <netinet/in.h>
+
+#include <zmq.hpp>
+
+#include <nxCore/nxCore.hpp>
+#include <nxNet/nxRemoteEventToLocalConverter.hpp>
+#include <nxNet/nxINetworkManager.hpp>
+#include <nxNet/nxBinaryPacket.hpp>
+
+
+using namespace std;
+using namespace zmq;
+
+/*
+ * =====================================================================================
+ *        Class: nxServerNetworkManager
+ *  Description:
+ * =====================================================================================
+ */
+class nxServerNetworkManager : public nxINetworkManager
+{
+	public:
+		nxServerNetworkManager(string serverListenAddr, vector<string> clientIps);
+
+		virtual ~nxServerNetworkManager();
+
+		virtual bool Init();
+
+		virtual void Step() { ; }
+
+		void AssertRcType(int rc);
+
+		void ListenToAllClients();
+
+		virtual void VTick();
+
+		virtual void SendToAllSubscribers(nxPacketPtr packet);
+		
+	protected:
+		context_t *m_Context;
+		socket_t *m_Publisher;
+		vector<string> m_ClientIps;
+		vector<socket_t*> m_Clients;
+		nxRemoteEventToLocalConverter m_RemoteEventToLocal;
+		string m_ServerListenAddr;
+
+	private:
+};
+
+#endif   // NXSERVEREVENTMANAGER_H

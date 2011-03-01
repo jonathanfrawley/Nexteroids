@@ -1,0 +1,40 @@
+#ifndef  NXREMOTEEVENTTOLOCALCONVERTER_H
+#define  NXREMOTEEVENTTOLOCALCONVERTER_H
+
+#include <netinet/in.h>
+#include <sstream>
+
+#include <nxNet/nxIPacket.hpp>
+
+#include <nxEvent/nxGameStateEventData.hpp>
+#include <nxEvent/nxRequestNewActorEventData.hpp>
+#include <nxEvent/nxNewActorEventData.hpp>
+#include <nxEvent/nxThrustEventData.hpp>
+#include <nxEvent/nxSteerEventData.hpp>
+#include <nxEvent/nxFireWeaponEventData.hpp>
+#include <nxEvent/nxPhysCollisionEventData.hpp>
+#include <nxEvent/nxActorDeathEventData.hpp>
+#include <nxEvent/nxActorMovedEventData.hpp>
+
+using namespace std;
+
+/*
+ * =====================================================================================
+ *        Class: nxRemoteEventToLocalConverter
+ *  Description:
+ * =====================================================================================
+ */
+class nxRemoteEventToLocalConverter
+{
+	public:
+		nxRemoteEventToLocalConverter();
+
+		virtual ~nxRemoteEventToLocalConverter();
+
+		void ConvertAndQueuePacket(nxPacketPtr packet);
+
+	protected:
+	private:
+};
+
+#endif   // NXREMOTEEVENTTOLOCALCONVERTER_H

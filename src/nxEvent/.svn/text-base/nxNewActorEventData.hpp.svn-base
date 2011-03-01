@@ -1,0 +1,56 @@
+
+#ifndef  NXNEWACTOREVENTDATA_H
+#define  NXNEWACTOREVENTDATA_H
+
+#include <nxCore/nxCore.hpp>
+#include <nxActor/nxIActor.hpp>
+#include <nxEvent/nxBaseEventData.hpp>
+#include <nxActor/nxBaseActor.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxNewActorEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxNewActorEventData : public nxBaseEventData
+{
+	public:
+		nxNewActorEventData(nxIActor* actor)
+			:
+				nxBaseEventData()
+		{
+			m_EventType = NX_EVENT_NewActor;
+			m_Actor = actor->VClone();
+		}
+
+		nxNewActorEventData(stringstream& in)
+			:
+				nxBaseEventData()
+		{
+			m_EventType = NX_EVENT_NewActor;
+			m_Actor = nxBaseActor::CreateFromStream(in);
+		}
+
+		virtual void VSerialize(stringstream &out) const
+		{
+			m_Actor->VSerialize(out);
+		}
+
+		virtual ~nxNewActorEventData()
+		{
+			delete m_Actor;
+		}
+
+		nxIActor* GetActor() const
+		{
+			return m_Actor;
+		}
+
+	protected:
+		nxIActor* m_Actor;
+	private:
+};
+
+
+#endif   // NXNEWACTOREVENTDATA_H

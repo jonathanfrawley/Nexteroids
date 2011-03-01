@@ -1,0 +1,18 @@
+#include "nxSpaceshipActor.hpp"
+
+nxSpaceshipActor::nxSpaceshipActor()
+	:
+		nxBaseActor(NX_ACTOR_SPACESHIP)
+{
+
+}
+
+nxSpaceshipActor::nxSpaceshipActor(nxReal yrot, nxPoint3 pos)
+	:
+		nxBaseActor(yrot, pos, NX_ACTOR_SPACESHIP)
+{
+}
+
+nxSpaceshipActor::~nxSpaceshipActor()
+{
+}

@@ -1,0 +1,82 @@
+##############################
+### neXter01D5
+### ATTHEMOMENT List
+##############################
+
+##############################
+### neXter01D5
+### TODO List
+##############################
+- Change points to be less invasive if possible, maybe we could reserve part of the screen for it? No, bad idea, just make smaller and more readable.
+- More types of rock.
+- Make it look more random when rocks are created from a dead rock, at the moment they move together(crap).
+- Better Graphics for ship and animation for when thrusting (Oh yeah! Duffman!)
+- Leaderboard
+
+##############################
+### neXter01D5
+### DONE List
+##############################
+- Run load tests for TCP over local network. DONE
+- Get started on design of architecture. DONE
+- Start implementing ProcessManager. DONE
+- Run load tests for TCP over web? DONE
+- HumanGameLogic, get it working.
+- Get HumanGameLogic to fire event to GameLogic when a button is pressed on menu.
+- GameLogic!
+- Get GameLogic to change view to another colour, etc on event.
+- Get NetworkManager working.
+- EventManager tests
+- Test Boost.ASIO
+- Implement simple UDP, test speedup over TCP.
+- Networking
+	Have a network forwarder for server. This forwards events via a pub/sub scheme.
+	Need to do client side class for this. A NetworkEventSubscriber?
+
+	On Server :
+		A publisher socket which translates all server events into packets and sends them on its pub socket to all clients.
+		A socket manager which holds a vector of unicast sockets to listen for incoming events from clients.
+	On Client : 
+		Need to send events from gameview along net to server. Client publishes events.
+		Need to listen to events from server.
+	So server starts up, sets up publisher socket, then blocks and waits for all clients to setup sockets to server.
+
+	pseudocode for server startup loop:
+		//Busy wait for clients to connect (loading screen)
+		nExpectedClients = FromConfigFile("expected_clients")
+		nClients = 0;
+		sockets = []
+		while( nClients < nExpectedClients )
+		{
+			acceptSocket = accept()
+			sockets.add(acceptSocket)
+#			packet = recvPacket()
+			clientId = nClients
+			reply = sendPacket(clientId)
+			nClients++;
+		}
+	pseudocode for client loop:
+		acceptSocket = accept()
+		myId = socket.recv()
+		createRemoteGameView(myId)
+
+- Review Actor class hierarchy, I think a simpler structure would be nicer without "params" types
+	So structure would be : 
+		Actor -> BaseActor -> Spaceship
+		Actor -> BaseActor -> Rock
+	And the physics world will take in Actors:
+		AddSphere(Actor);
+		And will be able to update the matrix of the actor on every step:
+			actor.setPos(sphere.getPos());
+			actor.setRot(sphere.getRot());
+	And the rendering world will take actors as well:
+		On NewActor Event:
+			CreateSpaceshipSprite(spaceship);
+		On Update:
+			spaceshipSprite.setPos(spaceship.getPos());
+			spaceshipSprite.setPos(spaceship.getRot());
+	I think this is the best way to do it, I can't see any downside, actor params doesn't save 
+	us much, probably more useful for lua stuff.
+
+
+

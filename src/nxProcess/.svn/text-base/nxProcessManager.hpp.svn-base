@@ -1,0 +1,45 @@
+#ifndef  NXPROCESSMANAGER_H
+#define  NXPROCESSMANAGER_H
+
+#include <nxCore/nxCore.hpp>
+#include <nxProcess/nxProcess.hpp>
+#include <nxLog/nxLog.hpp>
+
+// nxProcessList is a list of smart nxProcess pointers.
+typedef std::list< shared_ptr<nxProcess> > nxProcessList;
+
+/*
+ * =====================================================================================
+ *        Class: nxProcessManager
+ *  Description:
+ * =====================================================================================
+ */
+class nxProcessManager
+{
+	public:
+		nxProcessManager();
+
+		virtual ~nxProcessManager();
+
+		/* 
+		 * ===  FUNCTION  ======================================================================
+		 *         Name:  Attach
+		 *  Description:  Call this to attach a process to the process manager.
+		 * =====================================================================================
+		 */
+		void Attach( shared_ptr<nxProcess> pProcess );
+
+		bool HasProcesses();
+
+		bool IsProcessActive( int nType );
+
+		void UpdateProcesses(int iDelta);
+
+	protected:
+		nxProcessList m_ProcessList;
+
+	private:
+		void Detach( shared_ptr<nxProcess> pProcess );
+};
+
+#endif   // NXPROCESSMANAGER_H

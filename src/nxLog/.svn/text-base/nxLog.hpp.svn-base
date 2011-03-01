@@ -1,0 +1,42 @@
+#ifndef  NXLOG_H
+#define  NXLOG_H
+
+#include <iostream>
+using namespace std;
+
+#define DEBUG
+#define ERROR
+
+enum NX_LOG_LEVEL
+{
+	NX_LOG_DEBUG
+	, NX_LOG_WARN
+	, NX_LOG_ERROR
+};
+
+inline void log(NX_LOG_LEVEL logLevel, std::string str)
+{
+	switch(logLevel)
+	{
+		case NX_LOG_DEBUG:
+		{
+#ifdef DEBUG
+			cout<<"DEBUG:"<<str<<endl;	
+			cout.flush();
+#endif   //DEBUG
+
+			break;
+		}
+		case NX_LOG_ERROR:
+		{
+#ifdef ERROR
+			cout<<"ERROR:"<<str<<endl;	
+			cout.flush();
+#endif   //ERROR
+			break;
+		}
+
+	}
+}
+
+#endif   // NXLOG_H

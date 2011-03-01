@@ -1,0 +1,65 @@
+
+#ifndef  NXSTEEREVENTDATA_H
+#define  NXSTEEREVENTDATA_H
+
+#include <nxEvent/nxBaseEventData.hpp>
+#include <nxActor/nxIActor.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxSteerEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxSteerEventData : public nxBaseEventData
+{
+	public:
+		nxSteerEventData();
+
+		nxSteerEventData(nxActorId actorId, float steerAmount)
+			:
+				nxBaseEventData(),
+				m_ActorId(actorId),
+				m_SteerAmount(steerAmount)
+		{
+			m_EventType = NX_EVENT_Steer;
+		}
+
+		virtual ~nxSteerEventData()
+		{
+		}
+
+		nxSteerEventData(stringstream& in)
+			:
+				nxBaseEventData()
+		{
+			m_EventType = NX_EVENT_Steer;
+
+			in >> m_ActorId;
+			in >> m_SteerAmount;
+		}
+
+		virtual void VSerialize(stringstream &out) const
+		{
+			out << m_ActorId << " ";
+			out << m_SteerAmount << " ";
+		}
+
+		nxActorId GetActorId() const
+		{
+			return m_ActorId;
+		}
+
+		float GetSteerAmount() const
+		{
+			return m_SteerAmount;
+		}
+		
+	protected:
+		nxActorId m_ActorId;
+		float m_SteerAmount;
+
+	private:
+};
+
+#endif   // NXSTEEREVENTDATA_H

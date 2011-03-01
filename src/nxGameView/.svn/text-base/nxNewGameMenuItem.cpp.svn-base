@@ -1,0 +1,18 @@
+#include "nxNewGameMenuItem.hpp"
+
+nxNewGameMenuItem::nxNewGameMenuItem(std::string name)
+    :
+        nxMenuItem(name)
+{
+
+}
+
+nxNewGameMenuItem::~nxNewGameMenuItem()
+{
+
+}
+
+void nxNewGameMenuItem::mousePressed (gcn::MouseEvent &mouseEvent)
+{
+    nxEventManager::GetInstance().VQueueEvent(nxIEventDataPtr( NX_NEW nxRequestNewGameEventData() ));
+}

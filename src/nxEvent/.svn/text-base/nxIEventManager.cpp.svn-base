@@ -1,0 +1,11 @@
+#include "nxIEventManager.hpp"
+
+
+nxIEventManager::nxIEventManager()
+{
+}
+
+nxIEventManager::~nxIEventManager()
+{
+}
+

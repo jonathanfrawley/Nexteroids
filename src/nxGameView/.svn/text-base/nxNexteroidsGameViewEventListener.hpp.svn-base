@@ -1,0 +1,41 @@
+
+#ifndef  NXNEXTEROIDSGAMEVIEWEVENTLISTENER_H
+#define  NXNEXTEROIDSGAMEVIEWEVENTLISTENER_H
+
+#include <nxEvent/nxEventListener.hpp>
+#include <nxEvent/nxNewActorEventData.hpp>
+#include <nxGameView/nxNexteroidsGameView.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxNexteroidsGameViewEventListener
+ *  Description:
+ * =====================================================================================
+ */
+class nxNexteroidsGameViewEventListener : public nxEventListener
+{
+	public:
+		nxNexteroidsGameViewEventListener(nxNexteroidsGameView* gameView)
+		{
+			m_pGameView = gameView;
+		}
+
+		virtual ~nxNexteroidsGameViewEventListener()
+		{
+		}
+
+		virtual char const * GetName(void)
+		{
+			return "nxNexteroidsGameViewEventListener";
+		}
+
+		virtual bool HandleEvent( nxIEventData const & event );
+
+		
+	protected:
+		nxNexteroidsGameView* m_pGameView;
+	private:
+};
+
+
+#endif   // NXNEXTEROIDSGAMEVIEWEVENTLISTENER_H

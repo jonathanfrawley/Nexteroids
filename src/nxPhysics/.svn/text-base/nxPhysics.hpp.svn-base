@@ -1,0 +1,104 @@
+#ifndef  NXPHYSICS_H
+#define  NXPHYSICS_H
+
+#include <vector>
+
+#include <Box2D/Box2D.h>
+
+#include <nxPhysics/nxIPhysics.hpp>
+#include <nxCore/nxCore.hpp>
+#include <nxActor/nxRockActor.hpp>
+//#include <jfpx/x86/jfVector3_x86.h>
+
+//#include <nxPhysics/nxSphere.hpp>
+
+
+//#include <jfpx/x86/jfCollisionSphere_x86.h>
+
+//typedef nxSphere jfCollisionSphere_x86;
+
+/*
+ * =====================================================================================
+ *        Class: nxPhysics
+ *  Description:
+ * =====================================================================================
+ */
+class nxPhysics : public nxIPhysics, public b2ContactListener
+{
+	public:
+		nxPhysics();
+
+		virtual ~nxPhysics();
+
+		virtual void VInit();
+
+/*
+		virtual void VCreateSphere(float radius, nxISceneNode* actor)
+		{
+
+		}
+		*/
+
+		/*
+		virtual void VCreateSphere(float radius, shared_ptr<nxIActor> actor)
+		{
+
+		}
+		*/
+
+		virtual void VCreateActor(shared_ptr<nxIActor> actor);
+
+		/*
+		virtual void VCreateSphere(float radius, jfVector3_x86 pos, float rot)
+		{
+			nxSphere sphere;
+			sphere.SetRadius(radius);
+			sphere.SetPos(pos);
+			sphere.SetRot(rot);
+			m_Spheres.push_back(sphere);
+		}
+		*/
+
+		virtual void VOnUpdate(float timestep);
+
+		//TODO
+		virtual void VRenderDiagnostics() 
+		{ 
+		}
+
+		virtual void VRemoveActor(nxActorId aid)
+		{
+			vector<b2Body*>::iterator it, itEnd;
+			for(it = m_Bodies.begin(), itEnd = m_Bodies.end() ; it != itEnd ; it++)
+			{
+				b2Body* body = (*it);
+				nxIActor* actor = (nxIActor*)(body->GetUserData());
+				if(actor->VGetId() == aid)
+				{
+					m_Bodies.erase(it);
+					m_World->DestroyBody(body);
+				}
+			}
+		}
+
+		virtual void VApplyThrottle(nxActorId actorId, float throttle);
+
+		virtual void VApplySteering(nxActorId actorId, float steering);
+
+		vector<b2Vec2> ConvertPointToVec2(vector<nxPoint3> points);
+
+
+		//Contact Listener stuff.
+		virtual void BeginContact(b2Contact* contact);
+		
+	protected:
+//		std::vector<nxSphere> m_Spheres;
+//		std::vector<pair<b2Body*, shared_ptr<nxIActor> > > m_BodyActorPairs;
+		b2World* m_World;
+		std::vector<b2Body*> m_Bodies;
+
+	private:
+};
+
+
+#endif   // NXPHYSICS_H

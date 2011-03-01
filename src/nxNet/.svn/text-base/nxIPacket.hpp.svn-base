@@ -1,0 +1,34 @@
+
+#ifndef  NXIPACKET_H
+#define  NXIPACKET_H
+
+#include <inttypes.h>
+
+#include <nxCore/nxCore.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxIPacket
+ *  Description:
+ * =====================================================================================
+ */
+class nxIPacket
+{
+	public:
+		virtual ~nxIPacket()
+		{
+		}
+
+		virtual char const * VGetType() const = 0;
+
+		virtual char const * VGetData() const = 0;
+
+		virtual uint32_t VGetSize() const = 0;
+		
+	protected:
+	private:
+};
+
+typedef shared_ptr<nxIPacket> nxPacketPtr;
+
+#endif   // NXIPACKET_H

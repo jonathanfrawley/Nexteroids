@@ -1,0 +1,59 @@
+
+#ifndef  NXSPHERE_H
+#define  NXSPHERE_H
+
+/*
+ * =====================================================================================
+ *        Class: nxSphere
+ *  Description:
+ * =====================================================================================
+ */
+class nxSphere
+{
+	public:
+		nxSphere()
+		{
+		}
+
+		virtual ~nxSphere()
+		{
+		}
+
+		jfVector3_x86 GetPos()
+		{
+			return m_Pos;
+		}
+
+		void SetPos(jfVector3_x86 pos)
+		{
+			m_Pos = pos;
+		}
+
+		void SetRot(float rot)
+		{
+			m_Rot = rot;
+		}
+
+		float GetRot()
+		{
+			return m_Rot;
+		}
+
+		void SetRadius(float radius)
+		{
+			m_Radius = radius;
+		}
+
+		float GetRadius()
+		{
+			return m_Radius;
+		}
+		
+	protected:
+		jfVector3_x86 m_Pos;
+		float m_Rot;
+		float m_Radius;
+	private:
+};
+
+#endif   // NXSPHERE_H

@@ -1,0 +1,15 @@
+clientOrServer=s
+nNetPlayers=0
+
+###Client
+myIp=127.0.0.1
+clientListenAddr=tcp://*:5556
+#myIp=127.0.0.2
+#clientListenAddr=tcp://*:5557
+clientServerAddr=tcp://localhost:5555
+
+###Server
+serverListenAddr=tcp://*:5555
+serverClientIps=tcp://localhost:5556
+#serverClientIps=tcp://localhost:5557
+#serverClientIps=tcp://87.198.42.179:5556

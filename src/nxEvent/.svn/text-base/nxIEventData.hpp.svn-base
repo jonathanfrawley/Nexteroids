@@ -1,0 +1,27 @@
+#ifndef  NXIEVENTDATA_H
+#define  NXIEVENTDATA_H
+
+#include <sstream>
+
+#include <nxEvent/nxEventType.hpp>
+
+using namespace std;
+
+/*
+ * =====================================================================================
+ *        Class: nxIEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxIEventData
+{
+	public:
+		virtual nxEventType VGetEventType() const = 0;
+
+		virtual void VSerialize(stringstream &out) const = 0;
+	protected:
+	private:
+};
+
+
+#endif   // NXIEVENTDATA_H

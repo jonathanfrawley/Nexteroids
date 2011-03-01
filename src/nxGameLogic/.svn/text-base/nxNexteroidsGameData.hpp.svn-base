@@ -1,0 +1,38 @@
+
+#ifndef  NXNEXTEROIDSGAMEDATA_H
+#define  NXNEXTEROIDSGAMEDATA_H
+
+/*
+ * =====================================================================================
+ *        Class: nxNexteroidsGameData
+ *  Description:
+ * =====================================================================================
+ */
+class nxNexteroidsGameData
+{
+	public:
+		nxNexteroidsGameData()
+		{
+		}
+
+		virtual ~nxNexteroidsGameData()
+		{
+		}
+
+		int GetScore(nxActorId id)
+		{
+			return m_ActorScores[id];
+		}
+
+		void UpdateScore(nxActorId id, int score)
+		{
+			m_ActorScores[id] = score;
+		}
+
+
+	protected:
+		map<nxActorId, int> m_ActorScores;
+	private:
+};
+
+#endif   // NXNEXTEROIDSGAMEDATA_H

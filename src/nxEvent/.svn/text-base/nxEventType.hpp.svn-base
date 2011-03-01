@@ -1,0 +1,28 @@
+#ifndef  NXEVENTTYPE_H
+#define  NXEVENTTYPE_H
+
+
+
+
+//TODO : Could do hashed string for event type like mike does. Advantage is fast compile time. Don't really care about that here though.
+enum nxEventType
+{
+	NX_EVENT_GlobalListenerType,
+	NX_EVENT_RequestNewGame,
+	NX_EVENT_NewActor,
+	NX_EVENT_RequestNewActor,
+	NX_EVENT_LoadingGame,
+	NX_EVENT_GameState,
+	NX_EVENT_Thrust,
+	NX_EVENT_Steer,
+	NX_EVENT_FireWeapon,
+	NX_EVENT_PhysCollision,
+	NX_EVENT_ActorDeath,
+	NX_EVENT_ActorMoved,
+	NX_EVENT_RemoteClient,
+	//XXX: Remove these? Not needed anymore?
+	NX_EVENT_Null,
+	NX_EVENT_Endsentinal
+};
+
+#endif   // NXEVENTTYPE_H

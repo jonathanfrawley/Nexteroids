@@ -1,0 +1,27 @@
+
+#ifndef  NXLABEL_H
+#define  NXLABEL_H
+
+#include <guichan.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxLabel
+ *  Description:
+ * =====================================================================================
+ */
+class nxLabel : public gcn::Label
+{
+	public:
+		nxLabel(std::string caption);
+
+		virtual ~nxLabel();
+
+		virtual void draw(gcn::Graphics* g);
+
+	protected:
+	private:
+};
+
+
+#endif   // NXLABEL_H

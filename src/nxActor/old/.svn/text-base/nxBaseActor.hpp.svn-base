@@ -1,0 +1,53 @@
+
+#ifndef  NXBASEACTOR_H
+#define  NXBASEACTOR_H
+
+#include <jfpx/x86/jfMatrix4_x86.h>
+
+#include <nxCore/nxTypes.hpp>
+#include <nxActor/nxIActor.hpp>
+//#include <nxActor/nxActorParams.hpp>
+
+class nxBaseActor : public nxIActor
+{
+	public:
+		/*
+		nxBaseActor(jfMatrix4_x86 mat, int type, shared_ptr<nxActorParams> params)
+        { m_Mat=mat; m_Type=type; m_Params=params; }
+		*/
+
+		nxBaseActor(float rot, int type, shared_ptr<nxActorParams> params)
+        { m_Rot=rot; m_Type=type; m_Params=params; }
+
+//		virtual void VSetMat(const jfMatrix4_x86 &newMat) { m_Mat = newMat; }
+//		virtual jfMatrix4_x86 const &VGetMat() { return m_Mat; }
+
+		virtual const int VGetType() { return m_Type; }	
+
+		virtual nxActorId VGetID() { return m_id; }
+
+		virtual nxActorParams* VGetParams() { return m_Params; }
+
+		virtual bool VIsPhysical() { return true; }
+
+		virtual bool VIsGeometrical() { return true; }
+
+		virtual void VOnUpdate(int deltaMilliseconds) { }
+
+		virtual void VRotateY(float angleRadians)
+		{
+			m_Rot += angleRadians;
+		}
+
+		virtual void VSetID(nxActorId id) { m_id = id; } 
+
+
+	protected:
+		nxActorId m_id;
+//		jfMatrix4_x86 m_Mat;
+		float m_Rot;
+		int m_Type;
+		shared_ptr<nxActorParams> m_Params;
+};
+
+#endif   // NXBASEACTOR_H

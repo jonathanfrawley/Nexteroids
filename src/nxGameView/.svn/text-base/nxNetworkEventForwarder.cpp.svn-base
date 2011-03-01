@@ -1,0 +1,41 @@
+#include "nxNetworkEventForwarder.hpp"
+
+#include <nxGameApp/nxNexteroidsGameApp.hpp>
+
+
+nxNetworkEventForwarder::nxNetworkEventForwarder()
+{
+}
+
+nxNetworkEventForwarder::~nxNetworkEventForwarder()
+{
+}
+
+
+bool nxNetworkEventForwarder::HandleEvent( nxIEventData const & event )
+{
+	log(NX_LOG_DEBUG, "forwarding event to network manager...");
+	stringstream out;
+
+//	out << static_cast<int>(RemoteEventSocket::NetMsg_Event) << " ";
+//	out << event.getType().getStr() << " ";
+
+//	out << static_cast<int>(event.VGetEventType()) << " ";
+
+	out << static_cast<uint32_t>(event.VGetEventType()) << " ";
+	event.VSerialize(out);
+
+	out << "\n";
+	shared_ptr<nxBinaryPacket> eventMsg(
+			NX_NEW nxBinaryPacket(out.str().c_str(), out.str().size()));
+
+	/*
+	cout <<"sending:";
+	cout << out.rdbuf()->str() <<endl;
+	cout <<"sending size:";
+	cout << out.pcount() <<endl;
+	*/
+
+	nxNexteroidsGameApp::GetInstance().VGetNetworkManager()->SendToAllSubscribers(eventMsg);
+	return true;
+}

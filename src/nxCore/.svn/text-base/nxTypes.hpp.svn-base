@@ -1,0 +1,17 @@
+
+#ifndef  NXTYPES_H
+#define  NXTYPES_H
+
+typedef unsigned int nxActorId;
+typedef float nxReal;
+enum nxActorType { NX_ACTOR_UNKOWN, NX_ACTOR_SPACESHIP, NX_ACTOR_BULLET, NX_ACTOR_ROCK };
+
+typedef struct _nxColour
+{
+	nxReal r;
+	nxReal g;
+	nxReal b;
+	nxReal alpha;
+} nxColour;
+
+#endif   // NXTYPES_H

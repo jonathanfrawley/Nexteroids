@@ -1,0 +1,201 @@
+#ifndef  NXROCKACTOR_H
+#define  NXROCKACTOR_H
+
+#include <stdint.h> 
+
+#include <vector>
+
+#include <nxCore/nxCore.hpp>
+#include <nxCore/nxMath.hpp>
+#include <nxCore/nxTypes.hpp>
+#include <nxActor/nxBaseActor.hpp>
+#include <nxGeom/nxPoint3.hpp>
+#include <nxGameLogic/nxBaseGameLogic.hpp>
+
+using namespace std;
+
+/*
+ * =====================================================================================
+ *        Class: nxRockActor
+ *  Description:
+ * =====================================================================================
+ */
+class nxRockActor : public nxBaseActor
+{
+	public:
+
+		nxRockActor();
+
+		nxRockActor(nxReal yrot, nxPoint3 pos, float radius, float speed);
+
+		nxRockActor(const nxRockActor& other)
+			:
+				nxBaseActor(other)
+		{
+			m_Radius = other.GetRadius();
+			m_Colour = other.VGetColour();
+			vector<nxPoint3>::iterator it, itEnd;
+			for(it = other.GetPoints().begin(), 
+					itEnd = other.GetPoints().end() ; 
+					it != itEnd ; 
+					it++)
+			{
+				m_Points.push_back(*it);
+			}
+			m_Speed = other.VGetSpeed();
+			m_RockType = other.VGetRockType();
+		}
+
+		virtual ~nxRockActor();
+
+		virtual void VInit(stringstream& in)
+		{
+			nxBaseActor::VInit(in);
+
+			in >> m_Radius;
+
+			in >> m_Colour.r;
+			in >> m_Colour.g;
+			in >> m_Colour.b;
+			in >> m_Colour.alpha;
+
+			in >> m_Speed;
+
+//			in >> m_RockType;
+			uint32_t rockTypeInt;
+			in >> rockTypeInt;
+			m_RockType = rockTypeInt;
+
+			uint32_t nPoints;
+			in >> nPoints;
+			
+			for(int i = 0 ; i < nPoints ; i++)
+			{
+				nxPoint3 p;
+				p.VInit(in);
+				m_Points.push_back(p);
+			}
+
+			stringstream out;
+			out<<"At end of init in rockActor:"<<endl;
+
+			out<<"m_Radius is : "<<m_Radius<<endl;
+			out<<"m_Colour.r is: "<<m_Colour.r<<endl;
+			out<<"m_Colour.g is: "<<m_Colour.g<<endl;
+			out<<"m_Colour.b is: "<<m_Colour.b<<endl;
+			out<<"m_Colour.alpha is: "<<m_Colour.alpha<<endl;
+			out<<"m_Speed is: "<<m_Speed<<endl;
+			out<<"m_RockType is: "<<m_RockType<<endl;
+			out<<"nPoints is: "<<nPoints<<endl;
+			log(NX_LOG_DEBUG, out.str());
+		}
+
+		virtual void VSerialize(stringstream& out)
+		{
+			nxBaseActor::VSerialize(out);
+
+			out << m_Radius << " ";
+
+			out << m_Colour.r << " ";
+			out << m_Colour.g << " ";
+			out << m_Colour.b << " ";
+			out << m_Colour.alpha << " ";
+
+			out << m_Speed << " ";
+
+			uint32_t rockTypeInt= m_RockType;
+			out << rockTypeInt << " ";
+//			out << (int)m_RockType << " ";
+
+			uint32_t pointsSizeInt = m_Points.size();
+			out << pointsSizeInt << " ";
+//			out << (int)m_Points.size() << " ";
+			
+			for(int i = 0 ; i < m_Points.size() ; i++)
+			{
+				m_Points[i].VSerialize(out);
+				//out << " ";
+			}
+		}
+
+		virtual nxRockActor* VClone()
+		{
+//			return new nxRockActor(*this);
+			nxRockActor* result = new nxRockActor(m_Orientation, m_Pos, m_Radius, m_Speed);
+			result->VSetColour(m_Colour);
+			result->VSetSpeed(m_Speed);
+			result->VSetPoints(m_Points);
+			result->VSetRockType(m_RockType);
+
+			result->VSetViewId(m_ViewId);
+			result->VSetId(m_Id);
+			return result;
+		}
+
+		virtual void VOnUpdate(int deltaMilliseconds)
+		{
+		}
+
+		virtual void VCreate();
+
+		virtual void VSetRadius(float val)
+		{
+			m_Radius = val;
+		}
+
+		virtual nxReal GetRadius() const
+		{
+			return m_Radius;
+		}
+
+		virtual void VSetColour(nxColour colour)
+		{
+			m_Colour = colour;
+		}
+
+		virtual nxColour VGetColour() const
+		{
+			return m_Colour;
+		}
+
+		virtual float VGetSpeed() const
+		{
+			return m_Speed;
+		}
+
+		virtual void VSetSpeed(float val)
+		{
+			m_Speed = val;
+		}
+
+		vector<nxPoint3> GetPoints() const
+		{
+			return m_Points;
+		}
+
+		void VSetPoints(const vector<nxPoint3>& val)
+		{
+			m_Points = val;
+		}
+
+		void VSetRockType(int type)
+		{
+			m_RockType = type;
+		}
+
+		int VGetRockType() const
+		{
+			return m_RockType;
+		}
+		
+	protected:
+		nxReal m_Radius;
+		nxColour m_Colour;
+		float m_Speed;
+		vector<nxPoint3> m_Points;
+		int m_RockType;
+	private:
+};
+
+
+#endif   // NXROCKACTOR_H

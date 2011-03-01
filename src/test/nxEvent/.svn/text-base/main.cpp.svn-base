@@ -1,0 +1,20 @@
+//#define BOOST_TEST_MAIN
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MODULE ProcessManager
+
+#include <boost/test/unit_test.hpp>
+#include <boost/test/auto_unit_test.hpp>
+#include <boost/test/floating_point_comparison.hpp>
+
+#include "nxEvent/nxEventManager.hpp"  
+
+struct Fixture
+{
+	nxEventManager eventManager;
+};
+
+BOOST_AUTO_TEST_CASE (TestCase1)
+{
+    Fixture f;
+    BOOST_CHECK_EQUAL (f.processManager.HasProcesses(), false);
+}  

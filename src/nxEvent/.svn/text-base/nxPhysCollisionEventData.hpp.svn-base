@@ -1,0 +1,48 @@
+#ifndef  NXPHYSCOLLISIONEVENTDATA_H
+#define  NXPHYSCOLLISIONEVENTDATA_H
+
+#include <nxEvent/nxBaseEventData.hpp>
+#include <nxActor/nxIActor.hpp>
+
+/*
+ * =====================================================================================
+ *        Class: nxPhysCollisionEventData
+ *  Description:
+ * =====================================================================================
+ */
+class nxPhysCollisionEventData : public nxBaseEventData
+{
+	public:
+		nxPhysCollisionEventData();
+
+		nxPhysCollisionEventData(nxActorId actorIdA, nxActorId actorIdB)
+			:
+				nxBaseEventData(),
+				m_ActorIdA(actorIdA),
+				m_ActorIdB(actorIdB)
+		{
+			m_EventType = NX_EVENT_PhysCollision;
+		}
+
+		virtual ~nxPhysCollisionEventData()
+		{
+		}
+
+		nxActorId GetActorIdA() const
+		{
+			return m_ActorIdA;
+		}
+
+		nxActorId GetActorIdB() const
+		{
+			return m_ActorIdB;
+		}
+
+	protected:
+		nxActorId m_ActorIdA;
+		nxActorId m_ActorIdB;
+
+	private:
+};
+
+#endif   // NXPHYSCOLLISIONEVENTDATA_H

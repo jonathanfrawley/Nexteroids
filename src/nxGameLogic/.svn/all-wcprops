@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic
+END
+nxGameOptions.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxGameOptions.hpp
+END
+nxGameLogic.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxGameLogic.hpp
+END
+nxNexteroidsBaseGameLogic.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxNexteroidsBaseGameLogic.hpp
+END
+nxNexteroidsGameLogic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxNexteroidsGameLogic.cpp
+END
+nxIGameLogic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxIGameLogic.cpp
+END
+nxNexteroidsGameLogic.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxNexteroidsGameLogic.hpp
+END
+nxNexteroidsGameLogicEventListener.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxNexteroidsGameLogicEventListener.cpp
+END
+nxIGameLogic.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxIGameLogic.hpp
+END
+nxNexteroidsGameLogicEventListener.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxNexteroidsGameLogicEventListener.hpp
+END
+nxNexteroidsGameData.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxNexteroidsGameData.hpp
+END
+nxGameState.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxGameState.hpp
+END
+nxBaseGameLogic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxBaseGameLogic.cpp
+END
+nxBaseGameLogic.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxBaseGameLogic.hpp
+END
+nxGameLogic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxGameLogic.cpp
+END
+nxNexteroidsBaseGameLogic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/frawlej/!svn/ver/145/sem1/single_software_engineering/nexteroids/src/nxGameLogic/nxNexteroidsBaseGameLogic.cpp
+END

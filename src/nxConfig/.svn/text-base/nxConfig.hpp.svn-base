@@ -1,0 +1,70 @@
+#ifndef  NXCONFIG_H
+#define  NXCONFIG_H
+
+#include <vector>
+#include <string>
+#include <iostream>
+#include <fstream>
+
+#include <boost/program_options.hpp>
+
+#include <nxCore/nxCore.hpp>
+
+using namespace std;
+
+
+enum nxConfigEntryType
+{
+	NX_CONFIG_IS_CLIENT,
+	NX_CONFIG_N_NET_PLAYERS,
+	NX_CONFIG_MY_IP,
+	NX_CONFIG_CLIENT_LISTEN_ADDR,
+	NX_CONFIG_CLIENT_SERVER_ADDR,
+	NX_CONFIG_SERVER_CLIENT_IPS,
+	NX_CONFIG_SERVER_LISTEN_ADDR
+};
+
+/*
+ * =====================================================================================
+ *        Class: nxConfig
+ *  Description:
+ * =====================================================================================
+ */
+class nxConfig
+{
+	public:
+		nxConfig(std::string filename);
+
+		virtual ~nxConfig();
+
+		bool GetBool(nxConfigEntryType entryType);
+
+		int GetInt(nxConfigEntryType entryType);
+
+		string GetString(nxConfigEntryType entryType);
+
+		vector<string> GetVector(nxConfigEntryType entryType);
+
+
+		/* 
+		 * ===  FUNCTION  ======================================================================
+		 *         Name:  ParseOptions
+		 *  Description:  Parses options from both config file and command line.
+		 * =====================================================================================
+		 */
+		void ParseOptions(int ac, char** argv);
+		
+	protected:
+		std::string m_Filename;
+		std::string m_ClientListenAddr;
+		std::string m_ClientServerAddr;
+		vector<string> m_ServerClientIps;
+		std::string m_ServerListenAddr;
+		bool m_IsClient;
+		int m_NNetPlayers;
+		string m_Ip;
+	private:
+};
+
+
+#endif   // NXCONFIG_H

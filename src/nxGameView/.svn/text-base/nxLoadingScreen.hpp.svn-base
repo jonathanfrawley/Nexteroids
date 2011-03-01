@@ -1,0 +1,41 @@
+
+#ifndef  NXLOADINGSCREEN_H
+#define  NXLOADINGSCREEN_H
+
+#include <guichan.hpp>
+
+#include <nxGameView/nxIScreen.hpp>
+#include <nxGameView/nxLabel.hpp>
+
+const int NX_LABEL_X_OFFSET = 20;
+const int NX_LABEL_Y_OFFSET = 20;
+const std::string NX_LOADING_FILENAME("../../media/images/loading_background.png");
+
+/*
+ * =====================================================================================
+ *        Class: nxLoadingScreen
+ *  Description:
+ * =====================================================================================
+ */
+class nxLoadingScreen : public nxIScreen
+{
+	public:
+		nxLoadingScreen();
+
+		virtual ~nxLoadingScreen();
+
+		virtual void Init();
+
+		virtual void VOnUpdate(int deltaMilliseconds);
+
+		virtual void VOnRender();
+	protected:
+		gcn::Gui* m_pGui;
+		gcn::Container* m_TopContainer;
+		nxLabel* m_LoadingLabel;
+	    gcn::Icon* m_BackgroundIcon;
+	private:
+};
+
+
+#endif   // NXLOADINGSCREEN_H

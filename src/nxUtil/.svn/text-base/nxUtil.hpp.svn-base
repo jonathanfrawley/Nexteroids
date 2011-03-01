@@ -1,0 +1,18 @@
+
+#ifndef  NXUTIL_H
+#define  NXUTIL_H
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+inline string nxUtilConvertIntToString(int number)
+{
+   stringstream ss;//create a stringstream
+   ss << number;//add number to the stream
+   return ss.str();//return a string with the contents of the stream
+}
+
+#endif   // NXUTIL_H
